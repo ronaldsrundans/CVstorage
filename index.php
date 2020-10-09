@@ -38,7 +38,7 @@
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM Persons";
+                    $sql = "SELECT * FROM Persons INNER JOIN Work where Persons.id = Work.persid";
                     if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
@@ -49,6 +49,7 @@
                                         echo "<th>Last Name</th>";
                                         echo "<th>Email</th>";
                                         echo "<th>Phone</th>";
+                                        echo "<th>Work</th>";
                                         echo "<th>Action</th>";
                                     echo "</tr>";
                                 echo "</thead>";
@@ -60,6 +61,7 @@
                                         echo "<td>" . $row['lastname'] . "</td>";
                                         echo "<td>" . $row['email'] . "</td>";
                                         echo "<td>" . $row['phone'] . "</td>";
+                                        echo "<td>".$row['workname']."</td>";
                                         echo "<td>";
                                             echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
                                             echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
@@ -69,6 +71,7 @@
                                 }
                                 echo "</tbody>";                            
                             echo "</table>";
+                            //echo $row['workname'];
                             // Free result set
                             mysqli_free_result($result);
                         } else{
