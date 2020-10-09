@@ -31,21 +31,21 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     }
     
     // Validate address address
-    $input_address = trim($_POST["email"]);
-    if(empty($input_address)){
-        $address_err = "Please enter an email.";     
+    $input_email = trim($_POST["email"]);
+    if(empty($input_email)){
+        $email_err = "Please enter an email.";     
     } else{
-        $address = $input_address;
+        $email = $input_email;
     }
     
     // Validate salary
-    $input_salary = trim($_POST["phone"]);
-    if(empty($input_salary)){
-        $salary_err = "Please enter the phone number.";     
-    } elseif(!ctype_digit($input_salary)){
-        $salary_err = "Please enter a phone number.";
+    $input_phone = trim($_POST["phone"]);
+    if(empty($input_phone)){
+        $phone_err = "Please enter the phone number.";     
+    } elseif(!ctype_digit($input_phone)){
+        $phone_err = "Please enter a phone number.";
     } else{
-        $salary = $input_salary;
+        $phone = $input_phone;
     }
     
     // Check input errors before inserting in database
