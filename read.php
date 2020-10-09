@@ -24,9 +24,9 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 $row = $result->fetch_array(MYSQLI_ASSOC);
                 
                 // Retrieve individual field value
-                $Fname = $row["Fname"];
-                $Email = $row["Email"];
-                $Phone = $row["Phone"];
+                $firstname = $row["firstname"];
+                $email = $row["email"];
+                $phone = $row["phone"];
             } else{
                 // URL doesn't contain valid id parameter. Redirect to error page
                 header("location: error.php");
@@ -72,15 +72,19 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                     </div>
                     <div class="form-group">
                         <label>First name</label>
-                        <p class="form-control-static"><?php echo $row["Fname"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["firstname"]; ?></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Last name</label>
+                        <p class="form-control-static"><?php echo $row["lastname"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <p class="form-control-static"><?php echo $row["Email"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["email"]; ?></p>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <p class="form-control-static"><?php echo $row["Phone"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["phone"]; ?></p>
                     </div>
                     <p><a href="index.php" class="btn btn-primary">Back</a></p>
                 </div>
