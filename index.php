@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,6 +51,7 @@
                                         echo "<th>Email</th>";
                                         echo "<th>Phone</th>";
 					echo "<th>School</th>";
+					echo "<th>Work</th>";
                                         echo "<th>Action</th>";
                                     echo "</tr>";
                                 echo "</thead>";
@@ -62,6 +64,8 @@
                                         echo "<td>" . $row['email'] . "</td>";
                                         echo "<td>" . $row['phone'] . "</td>";
                                         echo "<td>" . $row['title'] . "</td>";
+echo "<td>"."</td>";					
+//echo "<td>". $row)['work']."<td>";
  					echo "<td>";
                                             echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
                                             echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
