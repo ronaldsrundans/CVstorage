@@ -38,7 +38,7 @@
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT * FROM persons";
+                    $sql = "SELECT persons.name, schools.title FROM persons join persjoinedu on persons.personid=persjoinedu.persid join schools on persjoinedu.eduid=schools.schoolid";
                     if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
@@ -49,6 +49,7 @@
                                         echo "<th>Last Name</th>";
                                         echo "<th>Email</th>";
                                         echo "<th>Phone</th>";
+					echo "<th>School</th>";
                                         echo "<th>Action</th>";
                                     echo "</tr>";
                                 echo "</thead>";
@@ -60,7 +61,8 @@
                                         echo "<td>" . $row['surname'] . "</td>";
                                         echo "<td>" . $row['email'] . "</td>";
                                         echo "<td>" . $row['phone'] . "</td>";
-                                        echo "<td>";
+                                        echo "<td>" . $row['title'] . "</td>";
+ 					echo "<td>";
                                             echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
                                             echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
                                             echo "<a href='delete.php?id=". $row['id'] ."' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash'></span></a>";
