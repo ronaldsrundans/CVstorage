@@ -39,7 +39,7 @@
                     require_once "config.php";
                     
                     // Attempt select query execution
-                    $sql = "SELECT persons.name, schools.title FROM persons join persjoinedu on persons.personid=persjoinedu.persid join schools on persjoinedu.eduid=schools.schoolid";
+                    $sql = "SELECT persons.name, persons.surname, persons.email, persons.phone, schools.title, workplace.company, persjoinwork.position FROM persons join persjoinedu on persons.personid=persjoinedu.persid join schools on persjoinedu.eduid=schools.schoolid join persjoinwork on persons.personid=persjoinwork.persid join workplace on persjoinwork.workid=workplace.workplaceid";
                     if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo "<table class='table table-bordered table-striped'>";
@@ -51,8 +51,9 @@
                                         echo "<th>Email</th>";
                                         echo "<th>Phone</th>";
 					echo "<th>School</th>";
-					echo "<th>Work</th>";
-                                        echo "<th>Action</th>";
+					echo "<th>Workplace</th>";
+					echo "<th>Position</th>";                                        
+					echo "<th>Action</th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -64,8 +65,8 @@
                                         echo "<td>" . $row['email'] . "</td>";
                                         echo "<td>" . $row['phone'] . "</td>";
                                         echo "<td>" . $row['title'] . "</td>";
-echo "<td>"."</td>";					
-//echo "<td>". $row)['work']."<td>";
+					echo "<td>" . $row['company'] . "</td>";
+					echo "<td>" . $row['position'] . "</td>";					
  					echo "<td>";
                                             echo "<a href='read.php?id=". $row['id'] ."' title='View Record' data-toggle='tooltip'><span class='glyphicon glyphicon-eye-open'></span></a>";
                                             echo "<a href='update.php?id=". $row['id'] ."' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil'></span></a>";
