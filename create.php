@@ -98,8 +98,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <div class="page-header">
                         <h2>Create CV Record</h2>
                     </div>
-                    <p>Please fill this form and submit to add employee record to the database.</p>
+                    <p>Please fill this form and submit to add CV record to the database.</p>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <h3>Personal information</h3>
                         <div class="form-group <?php echo (!empty($firstname_err)) ? 'has-error' : ''; ?>">
                             <label>First Name</label>
                             <input type="text" name="firstname" class="form-control" value="<?php echo $firstname; ?>">
@@ -120,6 +121,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
                             <span class="help-block"><?php echo $phone_err;?></span>
                         </div>
+                        <h3>Education</h3>
+
+                        <div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
+                            <label>Shcool</label>
+                            <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
+                            <span class="help-block"><?php echo $phone_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
+                            <label>Faculty</label>
+                            <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
+                            <span class="help-block"><?php echo $phone_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
+                            <label>Education level</label>
+                            <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
+                            <span class="help-block"><?php echo $phone_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
+                            <label>Statuss</label>
+                            <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
+                            <span class="help-block"><?php echo $phone_err;?></span>
+                        </div>
+                        
+                        <h3>Work experience</h3>
+
+                        <div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
+                            <label>Workplace</label>
+                            <input type="text" name="phone" class="form-control" value="<?php echo $phone; ?>">
+                            <span class="help-block"><?php echo $phone_err;?></span>
+                        </div>
+
+
+
+
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="index.php" class="btn btn-default">Cancel</a>
                     </form>
